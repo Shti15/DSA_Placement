@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int larg_str(string s,int k){
+int larg_str(string s){
     int i=0;
     int j=0;
     map<char,int> m;
@@ -12,7 +12,7 @@ int larg_str(string s,int k){
             maxi=max(maxi,j-i+1);
             j++;
         }
-        else if(m.size()>k){
+        else if(m.size()<j-i+1){
             while(m.size()<j-i+1){
                 m[s[i]]--;
                 if(m[s[i]]==0){
@@ -30,8 +30,7 @@ int larg_str(string s,int k){
 }
 int main(){
     string s="pwexpwe";
-    int k=3;
-    int result=larg_str(s,k);
+    int result=larg_str(s);
     cout<<result;
     return 0;
 }
